@@ -1,117 +1,180 @@
-<html><head><base href="https://creativewebsim.com/"><title>Bryam Asselini Portfolio</title>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LibrasConecta - Tradutor e Curso de Libras</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/handpose"></script>
     <style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        font-family: Arial, sans-serif;
-        background-color: #f0f0f0;
-    }
-    .screen {
-        width: 100%;
-        height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-color: #fff;
-        box-shadow: 0 0 20px rgba(0,0,0,0.1);
-    }
-    .content {
-        width: 80%;
-        height: 80%;
-        background-color: #ffffff;
-        border-radius: 10px;
-        overflow: hidden;
-        position: relative;
-    }
-    .header {
-        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
-        height: 60px;
-        display: flex;
-        align-items: center;
-        padding: 0 20px;
-    }
-    .logo {
-        font-size: 24px;
-        font-weight: bold;
-        color: white;
-    }
-    .menu {
-        position: absolute;
-        right: 20px;
-        top: 15px;
-    }
-    .menu-item {
-        display: inline-block;
-        margin-left: 15px;
-        padding: 5px 15px;
-        background-color: rgba(255,255,255,0.2);
-        border-radius: 20px;
-        color: white;
-        text-decoration: none;
-        font-size: 14px;
-    }
-    .main-content {
-        padding: 40px;
-        text-align: center;
-    }
-    .colorful-logo {
-        width: 200px;
-        height: 200px;
-        margin: 0 auto 30px;
-    }
-    h1 {
-        font-size: 48px;
-        color: #333;
-        margin-bottom: 20px;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+        nav {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .translator, .course-offer {
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .translator {
+            width: 60%;
+        }
+        .course-offer {
+            width: 35%;
+            background-color: #4CAF50;
+            color: white;
+        }
+        #videoElement {
+            width: 100%;
+            max-width: 640px;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            min-height: 100px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
     </style>
-    </head>
-    <body>
-    <div class="screen">
-        <div class="content">
-            <div class="header">
-                <div class="logo">Braiam Angoline</div>
-                <nav class="menu">
-                    <a href="#portfolio" class="menu-item">diego</a>
-                    <a href="#about" class="menu-item">tariq</a>
-                    <a href="#contact" class="menu-item">alicia</a>
-                </nav>
+</head>
+<body>
+    <header>
+        <h1>LibrasConecta</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#translator">Tradutor</a></li>
+            <li><a href="#course">Curso de Libras</a></li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <div class="translator" id="translator">
+                <h2>Tradutor de Libras para Português</h2>
+                <video id="videoElement" autoplay playsinline></video>
+                <button id="startButton" class="btn">Iniciar Tradução</button>
+                <div id="output"></div>
             </div>
-            <div class="main-content">
-                <svg class="colorful-logo" viewBox="0 0 200 200">
-                    <defs>
-                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
-                            <stop offset="50%" style="stop-color:#4ecdc4;stop-opacity:1" />
-                            <stop offset="100%" style="stop-color:#45b7d1;stop-opacity:1" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M100,20 C140,20 180,60 180,100 C180,140 140,180 100,180 C60,180 20,140 20,100 C20,60 60,20 100,20 Z" fill="url(#grad1)">
-                        <animateTransform attributeName="transform"
-                                          type="rotate"
-                                          from="0 100 100"
-                                          to="360 100 100"
-                                          dur="20s"
-                                          repeatCount="indefinite"/>
-                    </path>
-                    <text x="50%" y="50%" fill="#fff" font-size="24" text-anchor="middle" dy=".3em">BA</text>
-                </svg>
-                <h1>Braiam Angoline</h1>
+            <div class="course-offer" id="course">
+                <h2>Curso de Libras</h2>
+                <p>Aprenda Libras de forma fácil e acessível!</p>
+                <ul>
+                    <li>Aulas online</li>
+                    <li>Material didático exclusivo</li>
+                    <li>Professores especializados</li>
+                    <li>Certificado de conclusão</li>
+                </ul>
+                <p><strong>Apenas R$19,90 por mês!</strong></p>
+                <button id="subscribeButton" class="btn">Assinar Agora</button>
             </div>
         </div>
     </div>
+
     <script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        const menuItems = document.querySelectorAll('.menu-item');
-        menuItems.forEach(item => {
-            item.addEventListener('mouseover', () => {
-                item.style.backgroundColor = 'rgba(255,255,255,0.4)';
+        const video = document.getElementById('videoElement');
+        const startButton = document.getElementById('startButton');
+        const output = document.getElementById('output');
+        const subscribeButton = document.getElementById('subscribeButton');
+
+        // Função para configurar a câmera
+        async function setupCamera() {
+            const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            video.srcObject = stream;
+            return new Promise((resolve) => {
+                video.onloadedmetadata = () => {
+                    resolve(video);
+                };
             });
-            item.addEventListener('mouseout', () => {
-                item.style.backgroundColor = 'rgba(255,255,255,0.2)';
-            });
+        }
+
+        // Inicialização do modelo de reconhecimento de mãos
+        let model;
+        async function loadHandposeModel() {
+            model = await handpose.load();
+        }
+
+        // Função para interpretar os gestos (simplificada para este exemplo)
+        function interpretGesture(predictions) {
+            if (predictions.length > 0) {
+                // Implementar a lógica real de interpretação dos gestos
+                return "Olá, como vai você?";  // Exemplo simplificado
+            }
+            return "";
+        }
+
+        // Função principal de tradução
+        async function translate() {
+            const predictions = await model.estimateHands(video);
+            const translation = interpretGesture(predictions);
+            if (translation) {
+                output.textContent = translation;
+            }
+        }
+
+        // Evento de clique no botão de iniciar tradução
+        startButton.addEventListener('click', async () => {
+            await setupCamera();
+            await loadHandposeModel();
+            setInterval(translate, 100); // Traduz a cada 100ms
         });
-    });
+
+        // Simulação de assinatura do curso
+        subscribeButton.addEventListener('click', () => {
+            alert('Obrigado por se inscrever no nosso curso de Libras! Você será redirecionado para a página de pagamento.');
+            window.location.href = 'https://librasconecta.com/pagamento?plano=mensal&valor=19.90';
+        });
     </script>
-    </body></html>
+</body>
+</html>
