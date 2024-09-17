@@ -1,5 +1,6 @@
 header{
     width: 100vw;
     height: 15vh;
+    border-radius: 0;
     background-color: blanchedalmond;
 }
