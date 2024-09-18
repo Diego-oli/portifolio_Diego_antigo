@@ -239,7 +239,6 @@ h1 {
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-
 @media (max-width: 768px) {
     .cabecalho {
         padding: 0 10px;
@@ -253,7 +252,7 @@ h1 {
 
     .logo-centralizada {
         font-size: 24px;
-        margin-bottom: 5px; /* Ajusta o espaço abaixo da logo em telas menores */
+        margin-bottom: 5px;
     }
 
     h1 {
@@ -263,13 +262,13 @@ h1 {
     .container-bolsonaro {
         flex-direction: column;
         align-items: center;
-        margin-top: 5px; /* Move o container para cima em telas menores */
+        margin-top: 5px;
     }
 
     .texto-bolsonaro {
         font-size: 10px;
         text-align: center;
-        margin-top: 3px; /* Ajusta o espaço entre a imagem e o texto em telas menores */
+        margin-top: 3px;
     }
 
     .logo-colorida {
@@ -290,7 +289,7 @@ h1 {
 
     .logo-centralizada {
         font-size: 20px;
-        margin-bottom: 0; /* Remove o espaço abaixo da logo em telas muito pequenas */
+        margin-bottom: 0;
     }
 
     h1 {
@@ -309,52 +308,24 @@ h1 {
 
     .container-bolsonaro {
         gap: 5px;
-        margin-top: 0; /* Remove o espaço superior do container em telas muito pequenas */
+        margin-top: 0;
     }
 
     .bolsonaro {
         width: 120px;
-        margin-top: -20px; /* Posição mais acima da imagem */
+        margin-top: -20px;
     }
 
     .texto-bolsonaro {
         font-size: 10px;
         text-align: center;
-        margin-top: 0; /* Remove o espaço entre a imagem e o texto em telas muito pequenas */
+        margin-top: 0;
     }
 
     .botao-fixo {
         width: 60px;
         height: 60px;
     }
-
-    .logo {
-        font-size: 12px;
-    }
-}
-
-/* Estilo para a imagem de Bolsonaro */
-.bolsonaro {
-    width: 140px;
-    height: auto;
-    border-radius: 0%;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-    cursor: pointer;
-}
-
-.bolsonaro:hover {
-    transform: scale(1.1);
-}
-/* Classe comum para botões com animação */
-.botao-animado {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-}
-
-.botao-animado:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
 /* Animação de brilho */

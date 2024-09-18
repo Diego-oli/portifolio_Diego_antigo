@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Diego Oliveira</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/index.css">
     <link rel="stylesheet" href="./css/infos.css">
     <style>
-        /* Estilo para a imagem de Bolsonaro */
         .bolsonaro {
             width: 190px;
             height: auto;
@@ -22,8 +23,36 @@
         .bolsonaro:hover {
             transform: scale(1.1);
         }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        footer nav {
+            margin: 10px 0;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 18px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
+
 <body id="corpo">
     <div id="tela" class="tela">
         <div id="conteudo" class="conteudo">
@@ -33,9 +62,9 @@
                 </div>
                 <div id="logo" class="logo">dev sistemas</div>
                 <nav id="menu" class="menu">
-                    <a id="link-portfolio" href="#portfolio" class="item-menu">sou</a>
-                    <a id="link-sobre" href="#about" class="item-menu">muito</a>
-                    <a id="link-contato" href="#contact" class="item-menu">bom</a>
+                    <a id="botao1" href="botao1" class="item-menu">sou</a>
+                    <a id="botao2" href="botao2" class="item-menu">muito</a>
+                    <a id="botao3" href="botao3" class="item-menu">bom</a>
                 </nav>
             </div>
             <div id="conteudo-principal" class="conteudo-principal">
@@ -61,13 +90,15 @@
                 <h1 id="logo-centralizada" class="logo-centralizada">Diego Oliveira</h1>
                 <div id="container-bolsonaro" class="container-bolsonaro">
                     <img src="https://hashtag.blogfolha.uol.com.br/files/2021/01/Eq-RgudXMAA3CnO.jpg"
-                        alt="Bolsonaro capricho" class="bolsonaro" onclick="window.location.href='https://www.instagram.com/cn_diego_08/'">
-                    <p id="texto-bolsonaro" class="texto-bolsonaro">Meu nome é Diego Dutra de Oliveira, Tenho 16 anos e estou no segundo ano técnico de desenvolvimento de sistemas.</p>
+                        alt="Bolsonaro capricho" class="bolsonaro"
+                        onclick="window.location.href='https://www.instagram.com/cn_diego_08/'">
+                    <p id="texto-bolsonaro" class="texto-bolsonaro">Meu nome é Diego Dutra de Oliveira, Tenho 16 anos e
+                        estou no segundo ano técnico de desenvolvimento de sistemas.</p>
                 </div>
             </div>
         </div>
         <div id="video-container" class="video-container">
-            <iframe src="https://www.youtube.com/embed/c9PTEhiu8wM" title="Quem sou eu" title="Rap do Minecraft | Tauz RapGame 06"
+            <iframe src="https://www.youtube.com/embed/c9PTEhiu8wM" title="Quem sou eu"
                 frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowfullscreen></iframe>
         </div>
@@ -76,5 +107,42 @@
                 alt="Botão com Imagem">
         </button>
     </div>
+    <script>
+        const botaoFixo = document.querySelector('.botao-fixo');
+
+        let isDragging = false;
+        let offsetX, offsetY;
+        botaoFixo.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            offsetX = e.clientX - botaoFixo.getBoundingClientRect().left;
+            offsetY = e.clientY - botaoFixo.getBoundingClientRect().top;
+            botaoFixo.style.transition = 'none';
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+            botaoFixo.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                const mouseX = e.clientX - offsetX;
+                const mouseY = e.clientY - offsetY;
+
+                const minX = 0;
+                const minY = 0;
+                const maxX = window.innerWidth - botaoFixo.offsetWidth;
+                const maxY = window.innerHeight - botaoFixo.offsetHeight;
+
+                const newX = Math.min(Math.max(mouseX, minX), maxX);
+                const newY = Math.min(Math.max(mouseY, minY), maxY);
+
+                botaoFixo.style.left = `${newX}px`;
+                botaoFixo.style.top = `${newY}px`;
+            }
+        });
+    </script>
+
 </body>
+
 </html>
