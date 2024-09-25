@@ -1,13 +1,13 @@
 footer {
-    width: 1vw;
-    height: 10px; 
+    width: 100vw;
+    height: auto; /* Define uma altura adequada para o footer */
     display: flex;
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     align-items: center;
     position: absolute; /* Garante que o footer fique fixado no fim da página */
     bottom: 0;
     background-color: #2EADC3;
-    padding: 0px;
+    padding: 3spx;
 }
 
 .content-footer {
