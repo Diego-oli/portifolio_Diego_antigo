@@ -1,0 +1,82 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin: 20px 0;
+  }
+  .card {
+    width: 300px;
+    height: 180px;
+    background-color: #007BFF;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  .card:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  .card .card-header {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  .card .card-number {
+    font-size: 22px;
+    letter-spacing: 2px;
+  }
+  .card .card-footer {
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .chip {
+    width: 40px;
+    height: 30px;
+    background-color: gold;
+    border-radius: 5px;
+  }
+  #cadastrar-btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  #cadastrar-btn:hover {
+    background-color: #218838;
+  }
+  #cadastro-form {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  #cadastro-form input, #cadastro-form button {
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  #cadastro-form button {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }

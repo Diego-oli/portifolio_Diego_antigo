@@ -1,0 +1,165 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FCFAEE;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Evita rolagem indesejada */
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('https://tse3.mm.bing.net/th?id=OIG4.598kJdUHMNUefF0.ZbUg&pid=ImgGn');
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Aplica o desfoque ao fundo */
+    z-index: -1; /* Coloca o fundo atrás do conteúdo */
+}
+
+.login-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.login-container {
+    background-color: #507687;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    color: white;
+}
+.login-box {
+    display: flex;
+    width: 70vw;
+    height: 70vh;
+    background-color: #507687; /* Cor de fundo com opacidade */
+    border-radius: 2vh;
+    box-shadow: 0 1vh 2vh rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative; /* Garante que esteja acima do fundo com blur */
+    z-index: 1; /* Coloca a caixa de login acima do fundo */
+}
+
+
+.login-image {
+    width: 50%;
+    height: 100%;
+}
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.login-container {
+    width: 50%;
+    padding: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.social-login {
+    margin-bottom: 2vh;
+}
+
+.social-login button {
+    width: 100%;
+    padding: 1.5vh;
+    margin-bottom: 1.5vh;
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+    font-size: 2vh;
+}
+
+.google-btn {
+    background-color: #1877F2;
+    background-color: #1877F2;
+    color: white;
+}
+
+.facebook-btn {
+    background-color: #1877F2;
+    color: white;
+}
+
+.input-field {
+    width: 95%;
+    padding: 1.5vh;
+    margin-bottom: 2vh;
+    border-radius: 1vh;
+    border: none;
+    font-size: 2vh;
+}
+button {
+    width: 100%;
+    padding: 1.5vh;
+    margin-top: 2vh;
+    background-color:  #1663c9; /* Cor de fundo verde */
+    color: white; /* Cor do texto branco */
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+    font-size: 2vh;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito de hover */
+button:hover {
+    background-color: #042b3d; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+}
+
+/* Efeito ao clicar */
+button:active {
+    background-color: #133e52; /* Cor ainda mais escura ao clicar */
+    transform: scale(0.98); /* Leve redução no tamanho ao clicar */
+}
+/* Botão de Entrar */
+input[type="button"] {
+    width: 100%;
+    padding: 1.5vh;
+    margin-top: 2vh;
+    background-color: #1663c9; /* Cor de fundo azul */
+    color: white; /* Cor do texto branco */
+    border: none;
+    border-radius: 1vh;
+    cursor: pointer;
+    font-size: 2vh;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+}
+
+/* Efeito de hover */
+input[type="button"]:hover {
+    background-color: #042b3d; /* Cor mais escura ao passar o mouse */
+    transform: scale(1.05); /* Aumenta levemente o tamanho */
+}
+
+/* Efeito ao clicar */
+input[type="button"]:active {
+    background-color: #133e52; /* Cor ainda mais escura ao clicar */
+    transform: scale(0.98); /* Leve redução no tamanho ao clicar */
+}
+
+/* Ajuste para espaçamento */
+.login-footer {
+    margin-top: 20px; /* Adiciona 20px de espaço entre o botão e o texto */
+    font-size: 1.8vh;
+}
