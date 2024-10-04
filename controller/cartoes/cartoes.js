@@ -1,32 +1,73 @@
- function createCards(num) {
-    const container = document.getElementById('card-container');
-    for (let i = 1; i <= num; i++) {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.textContent = `Cartão ${i}`;
-      container.appendChild(card);
-    }
+const cards = [
+  { title: 'Cartão Aventura', value: 'R$ 150,00', image: 'https://via.placeholder.com/100x100.png?text=Aventura' },
+  { title: 'Cartão Gourmet', value: 'R$ 300,00', image: 'https://via.placeholder.com/100x100.png?text=Gourmet' },
+  { title: 'Cartão Viagem', value: 'R$ 500,00', image: 'https://via.placeholder.com/100x100.png?text=Viagem' },
+  { title: 'Cartão Fitness', value: 'R$ 200,00', image: 'https://via.placeholder.com/100x100.png?text=Fitness' },
+  { title: 'Cartão Luxo', value: 'R$ 1000,00', image: 'https://via.placeholder.com/100x100.png?text=Luxo' },
+  { title: 'Cartão Educação', value: 'R$ 250,00', image: 'https://via.placeholder.com/100x100.png?text=Educação' },
+  { title: 'Cartão Saúde', value: 'R$ 400,00', image: 'https://via.placeholder.com/100x100.png?text=Saúde' },
+  { title: 'Cartão Entretenimento', value: 'R$ 350,00', image: 'https://via.placeholder.com/100x100.png?text=Entretenimento' },
+  { title: 'Cartão Eletrônicos', value: 'R$ 600,00', image: 'https://via.placeholder.com/100x100.png?text=Eletrônicos' },
+  { title: 'Cartão Beleza', value: 'R$ 180,00', image: 'https://via.placeholder.com/100x100.png?text=Beleza' },
+  { title: 'Cartão Moda', value: 'R$ 320,00', image: 'https://via.placeholder.com/100x100.png?text=Moda' },
+  { title: 'Cartão Transporte', value: 'R$ 90,00', image: 'https://via.placeholder.com/100x100.png?text=Transporte' },
+  { title: 'Cartão Casa', value: 'R$ 700,00', image: 'https://via.placeholder.com/100x100.png?text=Casa' },
+  { title: 'Cartão Esporte', value: 'R$ 450,00', image: 'https://via.placeholder.com/100x100.png?text=Esporte' },
+  { title: 'Cartão Pets', value: 'R$ 230,00', image: 'https://via.placeholder.com/100x100.png?text=Pets' },
+  { title: 'Cartão Negócios', value: 'R$ 800,00', image: 'https://via.placeholder.com/100x100.png?text=Negócios' },
+  { title: 'Cartão Tecnologia', value: 'R$ 1200,00', image: 'https://via.placeholder.com/100x100.png?text=Tecnologia' },
+  { title: 'Cartão Arte', value: 'R$ 280,00', image: 'https://via.placeholder.com/100x100.png?text=Arte' },
+  { title: 'Cartão Decoração', value: 'R$ 400,00', image: 'https://via.placeholder.com/100x100.png?text=Decoração' },
+  { title: 'Cartão Música', value: 'R$ 500,00', image: 'https://via.placeholder.com/100x100.png?text=Música' }
+];
+
+function renderCards() {
+  const container = document.getElementById('card-container');
+  container.innerHTML = '';
+
+  cards.forEach((cardData) => {
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    const cardImage = document.createElement('img');
+    cardImage.src = cardData.image;
+
+    const cardTitleElement = document.createElement('div');
+    cardTitleElement.className = 'card-title';
+    cardTitleElement.textContent = cardData.title;
+
+    const cardValueElement = document.createElement('div');
+    cardValueElement.className = 'card-value';
+    cardValueElement.textContent = cardData.value;
+
+    card.appendChild(cardImage);
+    card.appendChild(cardTitleElement);
+    card.appendChild(cardValueElement);
+    container.appendChild(card);
+  });
+}
+
+function showForm() {
+  document.getElementById('cadastro-form').style.display = 'flex';
+}
+
+function addNewCard() {
+  const title = document.getElementById('card-title').value.trim();
+
+  if (!title) {
+    alert('Por favor, insira um título para o cartão.');
+    return;
   }
 
-  createCards(20);
+  const newCard = { title, value: 'R$ 0,00', image: 'https://via.placeholder.com/100x100.png?text=Novo+Cartão' }; // Imagem padrão
+  cards.push(newCard);
+  renderCards();
 
-  document.getElementById('cadastrar-btn').addEventListener('click', function() {
-    document.getElementById('cadastro-form').style.display = 'flex';
-  });
+  document.getElementById('card-title').value = '';
+  document.getElementById('cadastro-form').style.display = 'none';
+}
 
-  document.getElementById('submit-card').addEventListener('click', function() {
-    const title = document.getElementById('card-title').value;
-    if (title.trim() === '') {
-      alert('Por favor, insira um título para o cartão.');
-      return;
-    }
+document.getElementById('cadastrar-btn').addEventListener('click', showForm);
+document.getElementById('submit-card').addEventListener('click', addNewCard);
 
-    const container = document.getElementById('card-container');
-    const newCard = document.createElement('div');
-    newCard.className = 'card';
-    newCard.textContent = title;
-    container.appendChild(newCard);
-
-    document.getElementById('card-title').value = '';
-    document.getElementById('cadastro-form').style.display = 'none';
-  });
+renderCards();
