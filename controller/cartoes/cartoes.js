@@ -71,3 +71,4 @@ document.getElementById('cadastrar-btn').addEventListener('click', showForm);
 document.getElementById('submit-card').addEventListener('click', addNewCard);
 
 renderCards();
+
