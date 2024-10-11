@@ -1,3 +1,5 @@
+@import url(./fds.css);
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -102,4 +104,13 @@ h1 {
 
 #cadastro-form button:hover {
   background-color: #0056b3;
+}
+
+button{
+border: 0;
+border-radius: 0.7vw;
+width: 10vh;
+height: 3.6vh;
+background: #007BFF;
+font-size: small;
 }
