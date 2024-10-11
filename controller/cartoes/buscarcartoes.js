@@ -1,3 +1,5 @@
+import {renderCards} from './criarcartoes.js';
+
 export async function fetchCards() {
   try {
     const response = await fetch("http://localhost:3000/cards");
@@ -16,18 +18,17 @@ export async function fetchCards() {
 
 export async function excluir(index) {
   try {
-    const response = await fetch(`http://localhost:3000/cards/${index}`, {
+    const response = await fetch(`http://localhost:3000/cards`, {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json'
-      }
+      },
+      body: JSON.stringify({id: index}),
     });
 
-    if (response.ok) {
       console.log('Cartão excluído com sucesso');
-    } else {
-      throw new Error(`Erro ao excluir cartão: ${response.statusText}`);
-    }
+      renderCards();
+
   } catch (error) {
     console.error('Erro ao excluir cartão:', error);
   }

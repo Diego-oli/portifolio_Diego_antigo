@@ -1,4 +1,5 @@
 import { fetchCards } from "./../cartoes/buscarcartoes.js";
+import { excluir } from "./../cartoes/buscarcartoes.js";
 
 export async function renderCards() {
   let sectionCartoes = document.getElementById("card-container");
@@ -25,8 +26,7 @@ export async function renderCards() {
     button.textContent = 'Excluir';
     
     button.addEventListener('click', async () => {
-      await excluir(index); 
-      await renderCards(); 
+      excluir(index);  
     });
 
     card.appendChild(cardImage);

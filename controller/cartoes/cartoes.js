@@ -1,44 +1,41 @@
-import { fetchCards } from "./../cartoes/buscarcartoes.js";
+// import { fetchCards } from "./../cartoes/buscarcartoes.js";
+// const sectionCartoes = document.getElementById("cards");
+// const cards = [];
 
+// window.onload = async () => {
+//   await fetchCards(); 
+// };
 
-const sectionCartoes = document.getElementById("cards");
-const cards = [];
+// function showForm() {
+//   document.getElementById('cadastro-form').style.display = 'flex';
+// }
 
-window.onload = async () => {
-  await fetchCards(); 
-};
+// function addNewCard() {
+//   const title = document.getElementById('card-title').value.trim();
 
-function showForm() {
-  document.getElementById('cadastro-form').style.display = 'flex';
-}
+//   if (!title) {
+//     alert('Por favor, insira um título para o cartão.');
+//     return;
+//   }
 
-function addNewCard() {
-  const title = document.getElementById('card-title').value.trim();
+//   const newCard = {
+//     title: title,
+//     value: 'R$ 0,00',
+//     image: 'https://via.placeholder.com/100x100.png?text=Novo+Cartão'
+//   };
 
-  if (!title) {
-    alert('Por favor, insira um título para o cartão.');
-    return;
-  }
+//   cards.push(newCard);
+//   renderCards(); 
 
-  const newCard = {
-    title: title,
-    value: 'R$ 0,00',
-    image: 'https://via.placeholder.com/100x100.png?text=Novo+Cartão'
-  };
+//   document.getElementById('card-title').value = '';
+//   document.getElementById('cadastro-form').style.display = 'none';
+// }
 
-  cards.push(newCard);
-  renderCards(); 
-
-  document.getElementById('card-title').value = '';
-  document.getElementById('cadastro-form').style.display = 'none';
-}
-
-document.getElementById('cadastrar-btn').addEventListener('click', showForm);
-document.getElementById('submit-card').addEventListener('click', addNewCard);
+// document.getElementById('cadastrar-btn').addEventListener('click', showForm);
+// document.getElementById('submit-card').addEventListener('click', addNewCard);
 
 import { renderCards } from './criarcartoes.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   renderCards();
 });
-
