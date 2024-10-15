@@ -1,116 +1,56 @@
 @import url(./fds.css);
+@import url(./telaAtt.css);
 
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f0f2f5;
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-h1 {
-  color: #333;
+#cartoes{
+    display: grid;
+    grid-template-columns: 20vw 20vw 20vw 20vw;
 }
 
-#card-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 20px 0;
+.cartao{
+    width: 15vw;
+    height: 40vh;
+    margin: 1vw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2vh;
+    align-items: center;
+
+    background-color: rgb(250, 250, 250);
+    box-shadow: 1vw 1vw 0.5vw rgba(33, 33, 33, 0.3);
+    border-radius: 1vw;
+
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(33, 33, 33);
 }
 
-.card {
-  background-color: #007BFF;
-  color: white;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.cartao img{
+    width: 80%;
+    height: auto;
 }
 
-.card:hover {
-  background-color: #0056b3;
-  transform: scale(1.05);
+.cartao h3{
+    font-size: 3vw;
 }
 
-.card img {
-  width: 100px;
-  height: 100px;
-  margin-bottom: 15px;
+.button_card{
+    border: none;
+    background-color: rgb(163, 224, 246);
+    border-radius: 2vw;
+    color: white;
+    padding: 1vw;
+    cursor: pointer;
+
+    box-shadow: 0.1vw 0.1vw 0.1vw rgba(33, 33, 33, 0.3);
 }
 
-.card-title {
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-}
-
-.card-value {
-  font-size: 16px;
-  text-align: center;
-  margin-top: 10px;
-}
-
-#cadastrar-btn {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-#cadastrar-btn:hover {
-  background-color: #218838;
-}
-
-#cadastro-form {
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  margin-top: 20px;
-}
-
-#cadastro-form input {
-  margin-bottom: 15px;
-  padding: 10px;
-  width: 100%;
-  max-width: 300px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-#cadastro-form button {
-  background-color: #007BFF;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#cadastro-form button:hover {
-  background-color: #0056b3;
-}
-
-button{
-border: 0;
-border-radius: 0.7vw;
-width: 10vh;
-height: 3.6vh;
-background: #007BFF;
-font-size: small;
+.button_card:hover{
+    background-color: rgb(78, 193, 234);
 }

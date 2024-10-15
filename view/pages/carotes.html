@@ -1,26 +1,36 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./../css/cartoes/cartoes.css">
-  <script type="module" src="./../../controller/cartoes/cartoes.js"></script>
-  <title>Cadastro de Cartões</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diego </title>
+    <link rel="stylesheet" href="./../css/cartoes/cartoes.css">
+    <script type="module" src="./../../controller/cartoes/cartoes.js" defer></script>
 </head>
 <body>
-
-  <h1>Cartões Cadastrados</h1>
-  <div id="card-container"></div>
-
-  <button id="cadastrar-btn">Cadastrar Novo Cartão</button>
-
-  <div id="cadastro-form">
-    <h2>Cadastrar Cartão</h2>
-    <input type="text" id="card-title" placeholder="Título do Cartão">
-    <input type="text" id="card-title" placeholder="Numero do Cartão">
-    <input type="text" id="card-title" placeholder="Imagem do Cartão">
-    <button id="submit-card">Cadastrar</button>
-  </div>
-
+    <section id="cartoes">
+    </section>
+    <section id="telaCadastro">
+        <div id="inputs_cad">
+            <input id="nome" type="text" placeholder="nome">
+            <input id="valor" type="text" placeholder="valor">
+            <input id="link" type="text" placeholder="link da imagem">
+            <div id="buttons_telacad">
+                <button onclick="recolheDados()">SALVAR</button>
+                <button onclick="escodeTelaCad()">CANCELAR</button>
+            </div>
+        </div>
+    </section>
+    <section id="telaAtt">
+        <div id="inputs_att">
+            <input id="nomeAtt" type="text" placeholder="nome">
+            <input id="valorAtt" type="text" placeholder="valor">
+            <input id="linkAtt" type="text" placeholder="link da imagem">
+            <div id="buttons_telaatt">
+                <button onclick="recolheDadosAtt()">SALVAR</button>
+                <button onclick="escodeTelaAtt()">CANCELAR</button>
+            </div>
+        </div>
+    </section>
 </body>
 </html>
