@@ -1,13 +1,13 @@
-import { buscarCartoes } from "../cartoes/cartoes.js";  
-import { excluirCartoes } from "../cartoes/excluircartoes.js";
-import { mostraTelaCad } from "../cartoes/criarcartoes.js";
-import { mostraTelaAtt } from "../cartoes/atualizarcartoes.js";
+import { buscarCarotes } from "./../services/cartao-service.js";  
+import { excluirCartoes } from "./../services/cartao-service.js";
+// import { mostraTelaCad } from "./";
+import { mostraTelaAtt } from "../cartoes/attcartoes.js";
 
 export async function criarCartoes() {
     let sectionCartoes = document.getElementById('cartoes');
     sectionCartoes.innerHTML = '';
 
-    const cartoes = await buscarCartoes();  
+    const cartoes = await buscarCarotes();  
 
     for (let i = 0; i < cartoes.length; i++) {
         let cartao = document.createElement('div');
@@ -17,7 +17,7 @@ export async function criarCartoes() {
         let h3 = document.createElement('h3');
         h3.textContent = cartoes[i].valor;
         let imgTag = document.createElement('img');
-        imgTag.src = cartoes[i].img;
+        imgTag.src = cartoes[i].image;
 
         let div = document.createElement('div');
         div.style.display = 'flex';
@@ -53,7 +53,7 @@ export async function criarCartoes() {
     cartaoAdd.className = 'cartao';
     cartaoAdd.textContent = '+';
     cartaoAdd.addEventListener('click', () => {
-        mostraTelaCad();
+        mostraTelaAtt();//Trocar para tela de cadastro após achar o código
     });
     sectionCartoes.appendChild(cartaoAdd);
 }

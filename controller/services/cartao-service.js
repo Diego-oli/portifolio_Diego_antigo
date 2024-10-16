@@ -1,10 +1,10 @@
-import { criarCartoes } from "";
+import { criarCartoes } from "./../cartoes/cartoes-view.js";
 
 export async function buscarCarotes() {
     try {
-        const response = await fetch('http://localhost:3000/cartoes');
+        const response = await fetch('http://localhost:3000/cards');
         const data = await response.json();
-        const cartoes = data.cartoes;
+        const cartoes = data.cards;
         return cartoes;
     }
     catch (e) {
@@ -14,7 +14,7 @@ export async function buscarCarotes() {
 
 export async function excluirCartoes(index) {
     try {
-        const response = await fetch('http://localhost:3000/cartoes', {
+        const response = await fetch('http://localhost:3000/cards', {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',
@@ -30,7 +30,7 @@ export async function excluirCartoes(index) {
 
 export async function cadastrarCatao(nome, valor, link) {
     try {
-        const response = await fetch('http://localhost:3000/cartoes', {
+        const response = await fetch('http://localhost:3000/cards', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -50,7 +50,7 @@ export async function cadastrarCatao(nome, valor, link) {
 
 export async function atualizarCartao(id, nome, valor, img) {
     try {
-        const response = await fetch('http://localhost:3000/cartoes', {
+        const response = await fetch('http://localhost:3000/cards', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',

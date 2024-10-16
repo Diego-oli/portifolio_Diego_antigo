@@ -1,13 +1,13 @@
 import { fetchCards, excluir } from './buscarcartoes.js';
 
-let editingCardIndex = null;  // Variável para armazenar o índice do cartão sendo editado
-let cards = [];  // Variável para armazenar os cartões
+let editingCardIndex = null;  
+let cards = [];  
 
 export async function renderCards() {
   let sectionCartoes = document.getElementById("card-container");
   sectionCartoes.innerHTML = '';
 
-  cards = await fetchCards();  // Armazena os cartões na variável global
+  cards = await fetchCards();  
 
   cards.forEach((cardData, index) => {
     const card = document.createElement('div');
